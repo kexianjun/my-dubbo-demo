@@ -1,7 +1,6 @@
 package dubbo.json.demo;
 
-import org.apache.dubbo.config.annotation.Service;
-
+import com.alibaba.dubbo.config.annotation.Service;
 import dubbo.demo.api.DemoService;
 
 @Service

@@ -1,7 +1,6 @@
 package dubbo.json.demo;
 
-import org.apache.dubbo.config.annotation.Reference;
-
+import com.alibaba.dubbo.config.annotation.Reference;
 import dubbo.demo.api.DemoService;
 import org.springframework.stereotype.Component;
 

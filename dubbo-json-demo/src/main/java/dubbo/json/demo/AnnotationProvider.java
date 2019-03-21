@@ -18,11 +18,8 @@
  */
 package dubbo.json.demo;
 
-import org.apache.dubbo.config.RegistryConfig;
-import org.apache.dubbo.config.annotation.Reference;
-import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
-
-import dubbo.demo.api.DemoService;
+import com.alibaba.dubbo.config.RegistryConfig;
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
