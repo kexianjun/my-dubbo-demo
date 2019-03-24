@@ -13,7 +13,7 @@
     <!--<dubbo:registry address="zookeeper://11.163.250.27:2181"/>-->
 
     <!-- use dubbo protocol to export service on port 20880 -->
-    <dubbo:protocol name="dubbo" port="20890" serialization="fastjson"/>
+    <dubbo:protocol name="dubbo" port="20890" serialization="marshalling"/>
 
     <!-- service implementation, as same as regular local bean -->
     <bean id="demoService" class="dubbo.json.demo.DemoServiceImpl"/>
