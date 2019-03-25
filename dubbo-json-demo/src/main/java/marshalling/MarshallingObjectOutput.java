@@ -11,69 +11,66 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public class MarshallingObjectOutput implements ObjectOutput {
-    private final MarshallerFactory marshallerFactory = Marshalling.getProvidedMarshallerFactory("river");;
+    private final MarshallerFactory marshallerFactory = Marshalling.getProvidedMarshallerFactory("serial");;
     private final MarshallingConfiguration configuration;
-    private OutputStream outputStream;
     private Marshaller marshaller;
 
     public MarshallingObjectOutput(OutputStream out) throws IOException {
         configuration = new MarshallingConfiguration();
-        configuration.setVersion(3);
-        this.outputStream = out;
+        configuration.setVersion(5);
         marshaller = marshallerFactory.createMarshaller(configuration);
-        marshaller.start(Marshalling.createByteOutput(outputStream));
+        marshaller.start(Marshalling.createByteOutput(out));
 
     }
 
     @Override
     public void writeObject(Object obj) throws IOException {
-        System.out.println("write :" + obj);
         marshaller.writeObject(obj);
     }
 
     @Override
     public void writeBool(boolean v) throws IOException {
-        writeObject(v);
+        marshaller.writeBoolean(v);
     }
 
     @Override
     public void writeByte(byte v) throws IOException {
-        writeObject(v);
+        marshaller.writeByte(v);
     }
 
     @Override
     public void writeShort(short v) throws IOException {
-        writeObject(v);
+        marshaller.writeShort(v);
     }
 
     @Override
     public void writeInt(int v) throws IOException {
-        writeObject(v);
+        marshaller.writeInt(v);
     }
 
     @Override
     public void writeLong(long v) throws IOException {
-        writeObject(v);
+        marshaller.writeLong(v);
     }
 
     @Override
     public void writeFloat(float v) throws IOException {
-        writeObject(v);
+        marshaller.writeFloat(v);
     }
 
     @Override
     public void writeDouble(double v) throws IOException {
-        writeObject(v);
+        marshaller.writeDouble(v);
     }
 
     @Override
     public void writeUTF(String v) throws IOException {
-        writeObject(v);
+        marshaller.writeUTF(v);
     }
 
     @Override
     public void writeBytes(byte[] v) throws IOException {
-        writeObject(v);
+        marshaller.write(v);
     }
 
     @Override
@@ -83,7 +80,6 @@ public class MarshallingObjectOutput implements ObjectOutput {
 
     @Override
     public void flushBuffer() throws IOException {
-        outputStream.flush();
         marshaller.finish();
     }
 }

@@ -13,13 +13,13 @@
     <!--<dubbo:registry address="zookeeper://11.163.250.27:2181"/>-->
 
     <!-- use dubbo protocol to export service on port 20880 -->
-    <dubbo:protocol name="dubbo" port="20890" serialization="marshalling"/>
+    <dubbo:protocol name="dubbo" port="20890" serialization="sofahessian"/>
 
     <!-- service implementation, as same as regular local bean -->
     <bean id="demoService" class="dubbo.json.demo.DemoServiceImpl"/>
 
     <!-- declare the service interface to be exported -->
-    <dubbo:service interface="dubbo.demo.api.DemoService" ref="demoService"/>
+    <dubbo:service interface="dubbo.demo.api.DemoService" ref="demoService" stub="dubbo.json.demo.StubDemoService"/>
     <dubbo:reference id="demoServiceConsumer" check="true" interface="dubbo.demo.api.DemoService"/>
 
 </beans>

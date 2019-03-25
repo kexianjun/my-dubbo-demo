@@ -19,8 +19,6 @@ public class Consumer {
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
-
-
         }
 
         System.in.read();
